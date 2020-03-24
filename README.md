@@ -14,15 +14,15 @@ Transforma strings (nosso código) em tokens
 
 ## Análise sintática
 
-Transforma essas tokens em ast
+Transforma essas tokens em AST
 
 ## AST
 
-- Mostrar exemplo básico de console.log('hello world') usando esse site https://resources.jointjs.com/demos/javascript-ast
-- Mostrar exemplo um pouco mais avançado usando o https://astexplorer.net/
+- Mostrar exemplo básico de `console.log('hello world')` usando [esse site](https://resources.jointjs.com/demos/javascript-ast)
+- Mostrar exemplo um pouco mais avançado usando o [AST Explorer](https://astexplorer.net/)
 - Quem usa AST
   - VSCode usa para análise de código e refatorações automáticas
-  - ESLint usa para verificar regras (mostrar isso https://github.com/michellocana/eslint-plugin-just-why/blob/master/src/rules/NoTodoComment.js)
+  - ESLint usa para verificar regras (mostrar essa [regra simples](https://github.com/michellocana/eslint-plugin-just-why/blob/master/src/rules/NoTodoComment.js) como exemplo)
   - Prettier usa para ler e formatar o nosso código
   - TypeScript/Flow usam para fazer checagem de types
   - GraphQL usa para transformar a sintáxe deles em parâmetros e mandar pro provider de dados
