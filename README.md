@@ -1,22 +1,35 @@
 # Babel
 
-## Básico sobre compiladores
+## Compiladores
 
-Compiladores tem basicamente 3 estágios:
+> Classicamente, um compilador traduz um programa de uma linguagem textual facilmente entendida por um ser humano para uma linguagem de máquina.
 
-- Parsing
-- Transformation (aqui que entra o babel)
-- Code generation
+O funcionamento de um compilador pode se dividir em alguns estágios, que serão vistos a seguir
 
-## Análise léxica
+## Análise léxica (tokenization)
 
-Transforma strings (nosso código) em tokens
+Transforma cada pedaço de código (keywords) em uma token, dizendo o que elas representam individualmente
 
-## Análise sintática
+## Análise sintática (parsing)
 
-Transforma essas tokens em AST
+Acha a relação entre essas tokens
 
-## AST
+## Transformation
+
+Pega o código parseado e prevê um "passo a passo" de como executar ele
+
+## Code generation
+
+Finalmente executa o código usando esse passo a passo e gera seu output
+
+## No contexto do Babel
+
+- A análise léxica é feita pelo `@babel/parser` (anteriormente chamado de `babylon`), que é um fork de outro parser chamado `acorn`
+- A análise sintática também é feita pelo `@babel/parser`, e irá transformar essas tokens em AST (Abstract Syntax Tree)
+- No estágio de transformation é onde serão rodados todos os plugins que alteram de alguma forma o AST (essa é a parte que mais nos interessa)
+- No estágio de code generation o Babel pega o código gerado e retorna isso como uma string de código pra ser escrita em disco (é aqui que os sourcemaps são adicionados também, caso estejam ativos)
+
+## Um pouco sobre AST
 
 - Mostrar exemplo básico de `console.log('hello world')` usando [esse site](https://resources.jointjs.com/demos/javascript-ast)
 - Mostrar exemplo um pouco mais avançado usando o [AST Explorer](https://astexplorer.net/)
@@ -28,8 +41,17 @@ Transforma essas tokens em AST
   - GraphQL usa para transformar a sintáxe deles em parâmetros e mandar pro provider de dados
   - Babel
 
-## Babel
+## Escrevendo um plugin básico de transformation com babel
 
-- Escrevendo um plugin básico de transformation com babel
-- Como funciona o babel-plugin-jsx-auto-test-id
-- Por que a gente precisa atualizar o babel pra usar novas features do Ecmascript
+## Mostrar time travel do Babel REPL
+
+## Como funciona o babel-plugin-jsx-auto-test-id
+
+- Mostrar um [exemplo de uso básico do plugin](https://babeljs.io/repl#?browsers=&build=&builtIns=usage&spec=true&loose=true&code_lz=GYVwdgxgLglg9mABAFQKYGcoAoCUiDeAUIogE6pQilIA8AJjAG6Ix0C8ARALYCeAtFAxQ-rDogD0APkIBfIA&debug=false&forceAllTransforms=false&shippedProposals=false&circleciRepo=&evaluate=false&fileSize=false&timeTravel=true&sourceType=module&lineWrap=true&presets=env%2Creact%2Cenv&prettier=false&targets=&version=7.9.0&externalPlugins=babel-plugin-jsx-auto-test-id%401.0.5)
+
+## Referências
+
+- https://medium.com/@kosamari/how-to-be-a-compiler-make-a-compiler-with-javascript-4a8a13d473b4
+- https://github.com/jamiebuilds/babel-docs/blob/master/en_US/authors/basics/stages-of-babel.md
+- https://github.com/jamiebuilds/babel-handbook/blob/master/translations/en/plugin-handbook.md
+- https://pt.wikipedia.org/wiki/Compilador
