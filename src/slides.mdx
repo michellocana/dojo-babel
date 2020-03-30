@@ -10,9 +10,21 @@ import FullScreenTitle from './components/FullScreenTitle'
 
 ---
 
+# O que é Babel mesmo?
+
+> Babel é um conjunto de ferramentas usadas principalmente para converter o código
+> ECMAScript 2015+ em uma versão compatível com versões anteriores do JavaScript
+> em navegadores atuais ou mais antigos
+
+Notes: Em poucas palavras, Babel é um compilador JavaScript
+
+---
+
+
 # Compiladores
 
-> Classicamente, um compilador traduz um programa de uma linguagem textual facilmente entendida por um ser humano para uma linguagem de máquina.
+> Classicamente, um compilador traduz um programa de uma linguagem textual facilmente
+> entendida por um ser humano para uma linguagem de máquina.
 
 Notes: Ou no contexto do babel, converte um tipo de código em outro
 
@@ -66,7 +78,8 @@ Finalmente executa o código usando esse passo a passo e gera seu output
 
 # Análise léxica - Babel
 
-- A análise léxica é feita pelo `@babel/parser` (anteriormente chamado de `babylon`), que é um fork de outro parser chamado `acorn`
+- É feita pelo `@babel/parser` (anteriormente chamado de `babylon`)
+- Esse cara é um fork de outro parser bem conhecido chamado `acorn`
 
 Notes: Retomando, nessa fase o @babel/parser vai transformar a string de código em tokens
 
@@ -74,7 +87,8 @@ Notes: Retomando, nessa fase o @babel/parser vai transformar a string de código
 
 # Análise sintática - Babel
 
-- A análise sintática também é feita pelo `@babel/parser`, e irá transformar essas tokens em AST (Abstract Syntax Tree)
+- Também é feita pelo `@babel/parser`
+- Transforma essas tokens em AST (Abstract Syntax Tree).
 
 Notes: Retomando, o AST é uma árvore que contém informações mais detalhadas sobre as tokens
 
@@ -82,13 +96,18 @@ Notes: Retomando, o AST é uma árvore que contém informações mais detalhadas
 
 # Transformation - Babel
 
-- No estágio de transformation é onde serão rodados todos os plugins que alteram de alguma forma o AST (essa é a parte que mais nos interessa)
+É aqui que são rodados todos os plugins que alteram de alguma forma o AST (essa é a parte que mais nos interessa)
 
 ---
 
 # Code generation - Babel
 
-- No estágio de code generation o Babel pega o código gerado e retorna isso como uma string de código pra ser escrita em disco (é aqui que os sourcemaps são adicionados também, caso estejam ativos)
+- O Babel pega o código gerado e retorna isso como uma string de código
+- Nesse estágio também são gerados os sourcemaps, caso estejam ativos
+- Posteriormente essa string de código é escrita em disco
+
+Notes: Escrita em disco pelo próprio Babel, ou por outras ferramentas como Webpack, Rollup, etc.
+Depende da configuração de projeto
 
 ---
 
@@ -201,7 +220,7 @@ Notes: [Link para o plugin](https://astexplorer.net/#/gist/9abad0ad0f2d36c6975bc
 {
   // Se o plugin estiver publicado na npm como "babel-plugin-food-string-to-emoji",
   // só precisa adicionar "food-string-to-emoji" no array
-  "plugins": ["./lib/index.js"]
+  "plugins": ["./food-string-to-emoji.js"]
 }
 ```
 
@@ -242,7 +261,7 @@ console.log(foodsILike);
 
 # babel-plugin-jsx-auto-test-id
 
-- Serve para [adicionar um atributo data-test](https://babeljs.io/repl#?browsers=&build=&builtIns=usage&spec=true&loose=true&code_lz=GYVwdgxgLglg9mABAEQE4EMDuBBAwjVCAGwFMAVEKOVGdIgCgEpEBvAKEUVRKhFSXodOiADwgiAPiHDRRGBLRZE6RAAsQAW3RJVJdABMRAejlSZnEaYCiGAM4lEtuBof6e6GEVvHT04ZfkyXW4ALmVECAJiEh95P2NxM0RGNgBfIA&debug=false&forceAllTransforms=false&shippedProposals=false&circleciRepo=&evaluate=false&fileSize=false&timeTravel=false&sourceType=module&lineWrap=true&presets=env%2Creact%2Cenv&prettier=false&targets=&version=7.9.0&externalPlugins=babel-plugin-jsx-auto-test-id%401.0.5) no elemento host de um component para suprir a falta de ids que a **automação/GTM** precisa
+Serve para [adicionar um atributo data-test](https://babeljs.io/repl#?browsers=&build=&builtIns=usage&spec=true&loose=true&code_lz=GYVwdgxgLglg9mABAEQE4EMDuBBAwjVCAGwFMAVEKOVGdIgCgEpEBvAKEUVRKhFSXodOiADwgiAPiHDRRGBLRZE6RAAsQAW3RJVJdABMRAejlSZnEaYCiGAM4lEtuBof6e6GEVvHT04ZfkyXW4ALmVECAJiEh95P2NxM0RGNgBfIA&debug=false&forceAllTransforms=false&shippedProposals=false&circleciRepo=&evaluate=false&fileSize=false&timeTravel=false&sourceType=module&lineWrap=true&presets=env%2Creact%2Cenv&prettier=false&targets=&version=7.9.0&externalPlugins=babel-plugin-jsx-auto-test-id%401.0.5) no elemento host de um component para suprir a falta de ids que a **automação/GTM** precisa
 
 <div
   style={{
