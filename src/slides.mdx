@@ -1,0 +1,280 @@
+import { CodePane, Markdown } from 'spectacle'
+
+# Babel
+
+---
+
+# Compiladores
+
+> Classicamente, um compilador traduz um programa de uma linguagem textual facilmente entendida por um ser humano para uma linguagem de máquina.
+
+Notes: ou para simplificar mais ainda, converte uma coisa em outra
+
+---
+
+## O funcionamento de um compilador pode se dividir em 4 estágios:
+
+- Análise léxica (tokenization)
+- Análise sintática (parsing)
+- Transformation
+- Code generation
+
+---
+
+# Análise léxica (tokenization)
+
+Transforma cada pedaço de código (keywords) em uma token, dizendo o que elas representam individualmente
+
+---
+
+# Análise sintática (parsing)
+
+Acha a relação entre essas tokens
+
+---
+
+# Transformation
+
+Pega o código parseado e prevê um "passo a passo" de como executar ele
+
+---
+
+# Code generation
+
+Finalmente executa o código usando esse passo a passo e gera seu output
+
+---
+
+# Análise léxica - Babel
+
+- A análise léxica é feita pelo `@babel/parser` (anteriormente chamado de `babylon`), que é um fork de outro parser chamado `acorn`
+
+---
+
+# Análise sintática - Babel
+
+- A análise sintática também é feita pelo `@babel/parser`, e irá transformar essas tokens em AST (Abstract Syntax Tree)
+
+---
+
+# Transformation - Babel
+
+- No estágio de transformation é onde serão rodados todos os plugins que alteram de alguma forma o AST (essa é a parte que mais nos interessa)
+
+---
+
+# Code generation - Babel
+
+- No estágio de code generation o Babel pega o código gerado e retorna isso como uma string de código pra ser escrita em disco (é aqui que os sourcemaps são adicionados também, caso estejam ativos)
+
+---
+
+# Um pouco sobre AST
+
+<div style={{
+  display: 'flex',
+  flexFlow: 'row nowrap'
+}}>
+  <div style={{ flex: 40 }}>
+    <CodePane style={{ overflow: 'hidden' }}>
+{`const foodsILike = [
+  "hamburger",
+  "pizza",
+  "hotdog"
+];`}
+    </CodePane>
+  </div>
+
+  <div style={{ flex: 60, paddingLeft: 40 }}>
+    <img src="src/images/ast.svg" alt="AST" width="100%" />
+  </div>
+</div>
+
+Notes: Mostrar exemplo básico usando [esse site](https://resources.jointjs.com/demos/javascript-ast)
+
+const foodsILike = [ "hamburger", "pizza", "hotdog" ];
+
+---
+
+# Quem usa AST
+
+<ul
+  style={{
+    width: '80%',
+    display: 'flex',
+    flexFlow: 'row wrap',
+    listStyle: 'none',
+    justifyContent: 'center'
+  }}
+>
+  <li style={{ flex: 0, margin: 25 }}>
+    <img src="src/images/vscode.svg" height="150" alt="foo" />
+  </li>
+  <li style={{ flex: 0, margin: 25 }}>
+    <img src="src/images/eslint.svg" height="150" alt="foo" />
+  </li>
+  <li style={{ flex: 0, margin: 25 }}>
+    <img src="src/images/prettier.svg" height="150" alt="foo" />
+  </li>
+  <li style={{ flex: 0, margin: 25 }}>
+    <img src="src/images/typescript.svg" height="150" alt="foo" />
+  </li>
+  <li style={{ flex: 0, margin: 25 }}>
+    <img src="src/images/flow.svg" height="150" alt="foo" />
+  </li>
+  <li style={{ flex: 0, margin: 25 }}>
+    <img src="src/images/graphql.svg" height="150" alt="foo" />
+  </li>
+  <li style={{ flex: 0, margin: 25 }}>
+    <img src="src/images/babel.svg" height="150" alt="foo" />
+  </li>
+</ul>
+
+Notes: VSCode - análise de código e refatorações automáticas
+
+ESLint - verificação de regras e fix delas em alguns casos
+
+Prettier - ler e formatar o nosso código
+
+TypeScript/Flow - checagem de types
+
+GraphQL - transformar a sintáxe deles em parâmetros e mandar pro provider de dados
+
+---
+
+# Escrevendo um plugin básico de transformation com babel
+
+```js
+export default function() {
+  const foodEmojis = {
+    hamburger: "🍔",
+    pizza: "🍕",
+    hotdog: "🌭"
+  };
+
+  return {
+    name: "food-string-to-emoji",
+    visitor: {
+      StringLiteral(path) {
+        if (foodEmojis[path.node.value]) {
+          path.node.value = foodEmojis[path.node.value];
+        }
+      }
+    }
+  };
+}
+```
+
+Notes: [Link para o plugin](https://astexplorer.net/#/gist/9abad0ad0f2d36c6975bc9f2ad205408/16c1f78b47a05126904b280c01983e5eaedb111c)
+
+---
+
+<div
+  style={{
+    width: '100%',
+    display: 'flex',
+    flexFlow: 'row wrap',
+    listStyle: 'none',
+    justifyContent: 'center'
+  }}
+>
+  <div style={{ flex: 1, margin: 25 }}>
+    <h2>Input</h2>
+    <Markdown>
+{`\`\`\`js
+const foodsILike = [
+  "hamburger",
+  "pizza",
+  "hotdog"
+];\n
+console.log(foodsILike);
+\`\`\``}
+    </Markdown>
+  </div>
+
+  <div style={{ flex: 1, margin: 25 }}>
+    <h2>Output</h2>
+    <CodePane style={{ overflow: 'hidden' }}>
+      Array(3)[("🍔", "🍕", "🌭")];
+    </CodePane>
+  </div>
+</div>
+
+---
+
+# babel-plugin-jsx-auto-test-id
+
+- Serve para [adicionar um atributo data-test](https://babeljs.io/repl#?browsers=&build=&builtIns=usage&spec=true&loose=true&code_lz=GYVwdgxgLglg9mABAEQE4EMDuBBAwjVCAGwFMAVEKOVGdIgCgEpEBvAKEUVRKhFSXodOiADwgiAPiHDRRGBLRZE6RAAsQAW3RJVJdABMRAejlSZnEaYCiGAM4lEtuBof6e6GEVvHT04ZfkyXW4ALmVECAJiEh95P2NxM0RGNgBfIA&debug=false&forceAllTransforms=false&shippedProposals=false&circleciRepo=&evaluate=false&fileSize=false&timeTravel=false&sourceType=module&lineWrap=true&presets=env%2Creact%2Cenv&prettier=false&targets=&version=7.9.0&externalPlugins=babel-plugin-jsx-auto-test-id%401.0.5) no elemento host de um component para suprir a falta de ids que a automação/GTM precisa
+
+<div
+  style={{
+    width: '100%',
+    display: 'flex',
+    flexFlow: 'row wrap',
+    listStyle: 'none',
+    justifyContent: 'center'
+  }}
+>
+  <div style={{ flex: 1, margin: 25 }}>
+    <Markdown>
+{`\`\`\`jsx
+function DrawACircleTutorial() {
+  return (
+    <ul>
+      <li>Draw a human head</li>
+      <li>Erase some details</li>
+      <li>There: a circle</li>
+    </ul>
+  )
+}
+\`\`\``}
+    </Markdown>
+  </div>
+
+  <div style={{ flex: 1, margin: 25 }}>
+        <Markdown>
+{`\`\`\`html
+<ul data-test="DrawACircleTutorial">
+  <li>Draw a human head</li>
+  <li>Erase some details</li>
+  <li>There: a circle</li>
+</ul>
+\`\`\``}
+    </Markdown>
+  </div>
+</div>
+
+---
+
+## Funcionamento básico do plugin
+
+- [Passo 1](https://astexplorer.net/#/gist/6067fef835b09535e68d175c3cd36032/24dfd51e22a34c2b8eaf796deafd38a4a4bcb701): Encontrar a função que declara o component e adicionar o nome dela como atributo
+- [Passo 2](https://astexplorer.net/#/gist/354925d680565a6dfdeaa70c19da10de/8e961be1fe131402f39160a2b2d37fb533f34918): Adicionar o atributo somente no elemento host do component
+
+---
+
+## Funcionamento avançado
+
+- Passo 3: Adicionar atributo em outras formas de components (component com arrow function, component de classe)
+- Passo 4: Aceitar um nome de atributo customizado
+- Passo 5: Não adicionar atributo em functions dentro de functions (por exemplo, em um Array.map dentro do component)
+- Passo 6: Não adicionar atributo em components em que o host é um React.Fragment, pois eles não aceitam atributos
+
+---
+
+# Time travel do Babel REPL
+
+<div style={{ display: 'flex', justifyContent: 'center' }}>
+  <img src="src/images/babel-time-travel.png" alt="Babel Time Travel" style={{ flex: 0 }} />
+</div>
+
+Notes: Mostra o [passo a passo](https://babeljs.io/repl#?browsers=&build=&builtIns=usage&spec=true&loose=true&code_lz=GYVwdgxgLglg9mABAEQE4EMDuBBAwjVCAGwFMAVEKOVGdIgCgEpEBvAKEUVRKhFSXodOiADwgiAPiHDRRGBLRZE6RAAsQAW3RJVJdABMRAejlSZnEaYCiGAM4lEtuBof6e6GEVvHT04ZfkyXW4ALmVECAJiEh95P2NxM0RGNgBfIA&debug=false&forceAllTransforms=false&shippedProposals=false&circleciRepo=&evaluate=false&fileSize=false&timeTravel=true&sourceType=module&lineWrap=true&presets=env%2Creact%2Cenv&prettier=false&targets=&version=7.9.0&externalPlugins=babel-plugin-jsx-auto-test-id%401.0.5) que o Babel fez até gerar o código final
+
+---
+
+# Referências
+
+- https://medium.com/@kosamari/how-to-be-a-compiler-make-a-compiler-with-javascript-4a8a13d473b4
+- https://github.com/jamiebuilds/babel-docs/blob/master/en_US/authors/basics/stages-of-babel.md
+- https://github.com/jamiebuilds/babel-handbook/blob/master/translations/en/plugin-handbook.md
+- https://pt.wikipedia.org/wiki/Compilador
