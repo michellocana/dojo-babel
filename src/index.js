@@ -14,6 +14,8 @@ import {
   mdxComponentMap
 } from 'spectacle';
 
+import './style.css'
+
 // SPECTACLE_CLI_MDX_START
 import slides, { notes } from './slides.mdx';
 // SPECTACLE_CLI_MDX_END
