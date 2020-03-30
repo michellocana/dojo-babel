@@ -8,7 +8,7 @@ import { CodePane, Markdown } from 'spectacle'
 
 > Classicamente, um compilador traduz um programa de uma linguagem textual facilmente entendida por um ser humano para uma linguagem de máquina.
 
-Notes: ou para simplificar mais ainda, converte uma coisa em outra
+Notes: Ou no contexto do babel, converte um tipo de código em outro
 
 ---
 
@@ -23,19 +23,21 @@ Notes: ou para simplificar mais ainda, converte uma coisa em outra
 
 # Análise léxica (tokenization)
 
-Transforma cada pedaço de código (keywords) em uma token, dizendo o que elas representam individualmente
+Transforma cada pedaço de código em uma token, dizendo o que elas representam individualmente
+
+<img src='src/images/lexical-analysis.png' alt='Análise Léxica' style={{ width: '100%', maxWidth: 1200, margin: '0 auto' }} />
 
 ---
 
 # Análise sintática (parsing)
 
-Acha a relação entre essas tokens
+Acha a relação entre essas tokens (já já veremos como isso funciona)
 
 ---
 
 # Transformation
 
-Pega o código parseado e prevê um "passo a passo" de como executar ele
+Pega o código parseado e prevê um "passo a passo" de como executar e otimizar ele
 
 ---
 
@@ -45,15 +47,23 @@ Finalmente executa o código usando esse passo a passo e gera seu output
 
 ---
 
+# Compiladores no contexto do Babel
+
+---
+
 # Análise léxica - Babel
 
 - A análise léxica é feita pelo `@babel/parser` (anteriormente chamado de `babylon`), que é um fork de outro parser chamado `acorn`
+
+Notes: Retomando, nessa fase o @babel/parser vai transformar a string de código em tokens
 
 ---
 
 # Análise sintática - Babel
 
 - A análise sintática também é feita pelo `@babel/parser`, e irá transformar essas tokens em AST (Abstract Syntax Tree)
+
+Notes: Retomando, o AST é uma árvore que contém informações mais detalhadas sobre as tokens
 
 ---
 
@@ -104,7 +114,8 @@ const foodsILike = [ "hamburger", "pizza", "hotdog" ];
     display: 'flex',
     flexFlow: 'row wrap',
     listStyle: 'none',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    margin: '0 auto'
   }}
 >
   <li style={{ flex: 0, margin: 25 }}>
@@ -142,10 +153,11 @@ GraphQL - transformar a sintáxe deles em parâmetros e mandar pro provider de d
 
 ---
 
-# Escrevendo um plugin básico de transformation com babel
+# Escrevendo um plugin
 
 ```js
-export default function() {
+// index.js
+module.exports = function() {
   const foodEmojis = {
     hamburger: "🍔",
     pizza: "🍕",
@@ -166,6 +178,19 @@ export default function() {
 ```
 
 Notes: [Link para o plugin](https://astexplorer.net/#/gist/9abad0ad0f2d36c6975bc9f2ad205408/16c1f78b47a05126904b280c01983e5eaedb111c)
+
+---
+
+# Usando o plugin
+
+```json
+// .babelrc
+{
+  // Se o plugin estiver publicado na npm como "babel-plugin-food-string-to-emoji",
+  // só precisa adicionar "food-string-to-emoji" no array
+  "plugins": ["./lib/index.js"]
+}
+```
 
 ---
 
@@ -204,7 +229,7 @@ console.log(foodsILike);
 
 # babel-plugin-jsx-auto-test-id
 
-- Serve para [adicionar um atributo data-test](https://babeljs.io/repl#?browsers=&build=&builtIns=usage&spec=true&loose=true&code_lz=GYVwdgxgLglg9mABAEQE4EMDuBBAwjVCAGwFMAVEKOVGdIgCgEpEBvAKEUVRKhFSXodOiADwgiAPiHDRRGBLRZE6RAAsQAW3RJVJdABMRAejlSZnEaYCiGAM4lEtuBof6e6GEVvHT04ZfkyXW4ALmVECAJiEh95P2NxM0RGNgBfIA&debug=false&forceAllTransforms=false&shippedProposals=false&circleciRepo=&evaluate=false&fileSize=false&timeTravel=false&sourceType=module&lineWrap=true&presets=env%2Creact%2Cenv&prettier=false&targets=&version=7.9.0&externalPlugins=babel-plugin-jsx-auto-test-id%401.0.5) no elemento host de um component para suprir a falta de ids que a automação/GTM precisa
+- Serve para [adicionar um atributo data-test](https://babeljs.io/repl#?browsers=&build=&builtIns=usage&spec=true&loose=true&code_lz=GYVwdgxgLglg9mABAEQE4EMDuBBAwjVCAGwFMAVEKOVGdIgCgEpEBvAKEUVRKhFSXodOiADwgiAPiHDRRGBLRZE6RAAsQAW3RJVJdABMRAejlSZnEaYCiGAM4lEtuBof6e6GEVvHT04ZfkyXW4ALmVECAJiEh95P2NxM0RGNgBfIA&debug=false&forceAllTransforms=false&shippedProposals=false&circleciRepo=&evaluate=false&fileSize=false&timeTravel=false&sourceType=module&lineWrap=true&presets=env%2Creact%2Cenv&prettier=false&targets=&version=7.9.0&externalPlugins=babel-plugin-jsx-auto-test-id%401.0.5) no elemento host de um component para suprir a falta de ids que a **automação/GTM** precisa
 
 <div
   style={{
@@ -274,7 +299,7 @@ Notes: Mostra o [passo a passo](https://babeljs.io/repl#?browsers=&build=&builtI
 
 # Referências
 
-- https://medium.com/@kosamari/how-to-be-a-compiler-make-a-compiler-with-javascript-4a8a13d473b4
-- https://github.com/jamiebuilds/babel-docs/blob/master/en_US/authors/basics/stages-of-babel.md
-- https://github.com/jamiebuilds/babel-handbook/blob/master/translations/en/plugin-handbook.md
-- https://pt.wikipedia.org/wiki/Compilador
+- [How to be a compiler — make a compiler with JavaScript](https://medium.com/@kosamari/how-to-be-a-compiler-make-a-compiler-with-javascript-4a8a13d473b4)
+- [Stages of Babel](https://github.com/jamiebuilds/babel-docs/blob/master/en_US/authors/basics/stages-of-babel.md)
+- [Babel Plugin Handbook](https://github.com/jamiebuilds/babel-handbook/blob/master/translations/en/plugin-handbook.md)
+- [Compilador - Definição](https://pt.wikipedia.org/wiki/Compilador)
