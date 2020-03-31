@@ -35421,6 +35421,136 @@ function FullScreenTitle(props) {
 
 /***/ }),
 
+/***/ "./src/images/ast.svg":
+/*!****************************!*\
+  !*** ./src/images/ast.svg ***!
+  \****************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (__webpack_require__.p + "35c5eba3576168c7b49857dcfddd0a9b.svg");
+
+/***/ }),
+
+/***/ "./src/images/babel-time-travel.png":
+/*!******************************************!*\
+  !*** ./src/images/babel-time-travel.png ***!
+  \******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (__webpack_require__.p + "5e1e1165bb8f804dd049c5975d2095fc.png");
+
+/***/ }),
+
+/***/ "./src/images/babel.svg":
+/*!******************************!*\
+  !*** ./src/images/babel.svg ***!
+  \******************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (__webpack_require__.p + "3bd367b9ef22f0748226e98ed3856b1a.svg");
+
+/***/ }),
+
+/***/ "./src/images/eslint.svg":
+/*!*******************************!*\
+  !*** ./src/images/eslint.svg ***!
+  \*******************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (__webpack_require__.p + "735c0bcd7c9292cd998edea376aa7a2c.svg");
+
+/***/ }),
+
+/***/ "./src/images/flow.svg":
+/*!*****************************!*\
+  !*** ./src/images/flow.svg ***!
+  \*****************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (__webpack_require__.p + "e2fdf0c8d82ad016ed1c5cf8f7fa9ba3.svg");
+
+/***/ }),
+
+/***/ "./src/images/graphql.svg":
+/*!********************************!*\
+  !*** ./src/images/graphql.svg ***!
+  \********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (__webpack_require__.p + "5bf8a3ca0bb6bfb41063cdd672be9ad9.svg");
+
+/***/ }),
+
+/***/ "./src/images/lexical-analysis.png":
+/*!*****************************************!*\
+  !*** ./src/images/lexical-analysis.png ***!
+  \*****************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (__webpack_require__.p + "2840d2cdae89a0f60bf529da1da79747.png");
+
+/***/ }),
+
+/***/ "./src/images/prettier.svg":
+/*!*********************************!*\
+  !*** ./src/images/prettier.svg ***!
+  \*********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (__webpack_require__.p + "5ad58d64c5533e17124427294e89bddc.svg");
+
+/***/ }),
+
+/***/ "./src/images/typescript.svg":
+/*!***********************************!*\
+  !*** ./src/images/typescript.svg ***!
+  \***********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (__webpack_require__.p + "cd992e1bccb33e173fab1e1b0181ed2d.svg");
+
+/***/ }),
+
+/***/ "./src/images/vscode.svg":
+/*!*******************************!*\
+  !*** ./src/images/vscode.svg ***!
+  \*******************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (__webpack_require__.p + "e60fcd0974402a2aaf59f3835776c5ea.svg");
+
+/***/ }),
+
 /***/ "./src/index.js":
 /*!**********************!*\
   !*** ./src/index.js ***!
@@ -35500,9 +35630,29 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _mdx_js_react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @mdx-js/react */ "./node_modules/@mdx-js/react/dist/esm.js");
 /* harmony import */ var spectacle__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! spectacle */ "./node_modules/spectacle/es/index.js");
 /* harmony import */ var _components_FullScreenTitle__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/FullScreenTitle */ "./src/components/FullScreenTitle.js");
+/* harmony import */ var _images_lexical_analysis_png__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./images/lexical-analysis.png */ "./src/images/lexical-analysis.png");
+/* harmony import */ var _images_ast_svg__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./images/ast.svg */ "./src/images/ast.svg");
+/* harmony import */ var _images_vscode_svg__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./images/vscode.svg */ "./src/images/vscode.svg");
+/* harmony import */ var _images_eslint_svg__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./images/eslint.svg */ "./src/images/eslint.svg");
+/* harmony import */ var _images_prettier_svg__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./images/prettier.svg */ "./src/images/prettier.svg");
+/* harmony import */ var _images_typescript_svg__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./images/typescript.svg */ "./src/images/typescript.svg");
+/* harmony import */ var _images_flow_svg__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./images/flow.svg */ "./src/images/flow.svg");
+/* harmony import */ var _images_graphql_svg__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./images/graphql.svg */ "./src/images/graphql.svg");
+/* harmony import */ var _images_babel_svg__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./images/babel.svg */ "./src/images/babel.svg");
+/* harmony import */ var _images_babel_time_travel_png__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./images/babel-time-travel.png */ "./src/images/babel-time-travel.png");
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
 /* @jsx mdx */
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -35655,7 +35805,7 @@ function MDXContentWrapperSlide4(props) {
       components: components,
       mdxType: "MDXLayout"
     }), Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__["mdx"])("h1", null, `Análise léxica (tokenization)`), Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__["mdx"])("p", null, `Transforma cada pedaço de código em uma token, dizendo o que elas representam individualmente`), Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__["mdx"])("img", {
-      src: "/images/lexical-analysis.png",
+      src: _images_lexical_analysis_png__WEBPACK_IMPORTED_MODULE_4__["default"],
       alt: "An\xE1lise L\xE9xica",
       style: {
         width: '100%',
@@ -35962,7 +36112,7 @@ function MDXContentWrapperSlide13(props) {
         paddingLeft: 40
       }
     }, Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__["mdx"])("img", {
-      src: "/images/ast.svg",
+      src: _images_ast_svg__WEBPACK_IMPORTED_MODULE_5__["default"],
       alt: "AST",
       width: "100%"
     }))));
@@ -36008,7 +36158,7 @@ function MDXContentWrapperSlide14(props) {
         margin: 25
       }
     }, Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__["mdx"])("img", {
-      src: "/images/vscode.svg",
+      src: _images_vscode_svg__WEBPACK_IMPORTED_MODULE_6__["default"],
       height: "150",
       alt: "foo"
     })), Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__["mdx"])("li", {
@@ -36017,7 +36167,7 @@ function MDXContentWrapperSlide14(props) {
         margin: 25
       }
     }, Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__["mdx"])("img", {
-      src: "/images/eslint.svg",
+      src: _images_eslint_svg__WEBPACK_IMPORTED_MODULE_7__["default"],
       height: "150",
       alt: "foo"
     })), Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__["mdx"])("li", {
@@ -36026,7 +36176,7 @@ function MDXContentWrapperSlide14(props) {
         margin: 25
       }
     }, Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__["mdx"])("img", {
-      src: "/images/prettier.svg",
+      src: _images_prettier_svg__WEBPACK_IMPORTED_MODULE_8__["default"],
       height: "150",
       alt: "foo"
     })), Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__["mdx"])("li", {
@@ -36035,7 +36185,7 @@ function MDXContentWrapperSlide14(props) {
         margin: 25
       }
     }, Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__["mdx"])("img", {
-      src: "/images/typescript.svg",
+      src: _images_typescript_svg__WEBPACK_IMPORTED_MODULE_9__["default"],
       height: "150",
       alt: "foo"
     })), Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__["mdx"])("li", {
@@ -36044,7 +36194,7 @@ function MDXContentWrapperSlide14(props) {
         margin: 25
       }
     }, Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__["mdx"])("img", {
-      src: "/images/flow.svg",
+      src: _images_flow_svg__WEBPACK_IMPORTED_MODULE_10__["default"],
       height: "150",
       alt: "foo"
     })), Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__["mdx"])("li", {
@@ -36053,7 +36203,7 @@ function MDXContentWrapperSlide14(props) {
         margin: 25
       }
     }, Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__["mdx"])("img", {
-      src: "/images/graphql.svg",
+      src: _images_graphql_svg__WEBPACK_IMPORTED_MODULE_11__["default"],
       height: "150",
       alt: "foo"
     })), Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__["mdx"])("li", {
@@ -36062,7 +36212,7 @@ function MDXContentWrapperSlide14(props) {
         margin: 25
       }
     }, Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__["mdx"])("img", {
-      src: "/images/babel.svg",
+      src: _images_babel_svg__WEBPACK_IMPORTED_MODULE_12__["default"],
       height: "150",
       alt: "foo"
     }))));
@@ -36396,7 +36546,7 @@ function MDXContentWrapperSlide21(props) {
         justifyContent: 'center'
       }
     }, Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__["mdx"])("img", {
-      src: "/images/babel-time-travel.png",
+      src: _images_babel_time_travel_png__WEBPACK_IMPORTED_MODULE_13__["default"],
       alt: "Babel Time Travel",
       style: {
         flex: 0
