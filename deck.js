@@ -36154,7 +36154,7 @@ function MDXContentWrapperSlide14(props) {
       }
     }, Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__["mdx"])("li", {
       style: {
-        flex: 0,
+        flex: 'none',
         margin: 25
       }
     }, Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__["mdx"])("img", {
@@ -36163,7 +36163,7 @@ function MDXContentWrapperSlide14(props) {
       alt: "foo"
     })), Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__["mdx"])("li", {
       style: {
-        flex: 0,
+        flex: 'none',
         margin: 25
       }
     }, Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__["mdx"])("img", {
@@ -36172,7 +36172,7 @@ function MDXContentWrapperSlide14(props) {
       alt: "foo"
     })), Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__["mdx"])("li", {
       style: {
-        flex: 0,
+        flex: 'none',
         margin: 25
       }
     }, Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__["mdx"])("img", {
@@ -36181,7 +36181,7 @@ function MDXContentWrapperSlide14(props) {
       alt: "foo"
     })), Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__["mdx"])("li", {
       style: {
-        flex: 0,
+        flex: 'none',
         margin: 25
       }
     }, Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__["mdx"])("img", {
@@ -36190,7 +36190,7 @@ function MDXContentWrapperSlide14(props) {
       alt: "foo"
     })), Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__["mdx"])("li", {
       style: {
-        flex: 0,
+        flex: 'none',
         margin: 25
       }
     }, Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__["mdx"])("img", {
@@ -36199,7 +36199,7 @@ function MDXContentWrapperSlide14(props) {
       alt: "foo"
     })), Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__["mdx"])("li", {
       style: {
-        flex: 0,
+        flex: 'none',
         margin: 25
       }
     }, Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__["mdx"])("img", {
@@ -36208,7 +36208,7 @@ function MDXContentWrapperSlide14(props) {
       alt: "foo"
     })), Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__["mdx"])("li", {
       style: {
-        flex: 0,
+        flex: 'none',
         margin: 25
       }
     }, Object(_mdx_js_react__WEBPACK_IMPORTED_MODULE_1__["mdx"])("img", {
@@ -36549,7 +36549,9 @@ function MDXContentWrapperSlide21(props) {
       src: _images_babel_time_travel_png__WEBPACK_IMPORTED_MODULE_13__["default"],
       alt: "Babel Time Travel",
       style: {
-        flex: 0
+        flex: 'none',
+        width: '100%',
+        maxWidth: 1070
       }
     })));
   }
