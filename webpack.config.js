@@ -3,7 +3,6 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 // Customized babel loader with the minimum we need to get `mdx` libraries
 // working, which unfortunately codegen JSX instead of JS.
@@ -43,7 +42,10 @@ const config = {
       },
       {
         test: /\.(png|svg|jpg|gif)$/,
-        use: [require.resolve('file-loader')]
+        loader: 'file-loader',
+        options: {
+          name: '[contenthash].[ext]'
+        }
       }
     ]
   },
@@ -52,8 +54,7 @@ const config = {
     new HtmlWebpackPlugin({
       title: 'Spectacle presentation',
       template: './src/index.html'
-    }),
-    new CopyWebpackPlugin([{ from: 'public' }])
+    })
   ]
 }
 
